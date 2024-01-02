@@ -60,7 +60,7 @@ public class UtilisateurControllerTest {
     @Order(1)
     public void should_save_utilisateur_and_return_created_status_code() {
 
-        var utilisateur = Utilisateur.builder().nom("Doe").prenom("john").build();
+        Utilisateur utilisateur = Utilisateur.builder().nom("Doe").prenom("john").build();
 
         ResponseEntity<Utilisateur> createResponse = restTemplate.postForEntity("/api/utilisateurs", utilisateur, Utilisateur.class);
         Utilisateur savedUser = createResponse.getBody();
@@ -77,7 +77,7 @@ public class UtilisateurControllerTest {
         var utilisateur = Utilisateur.builder().nom("Doe").prenom("john").build();
         repository.save(utilisateur);
 
-        var url = String.format("/api/utilisateurs/%s", utilisateur.getId());
+        String url = String.format("/api/utilisateurs/%s", utilisateur.getId());
 
         ResponseEntity<Utilisateur> findUserByIdResponse = restTemplate.getForEntity(url, Utilisateur.class);
         Utilisateur existUser = findUserByIdResponse.getBody();

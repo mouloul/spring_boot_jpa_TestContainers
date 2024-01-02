@@ -9,21 +9,18 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/utilisateurs")
 public class UtilisateurController {
+    private final UtilisateurService utilisateurService;
 
-    private final UtilisateurService userService;
-
-    public UtilisateurController(UtilisateurService userService) {
-        this.userService = userService;
+    public UtilisateurController(UtilisateurService utilisateurService) {
+        this.utilisateurService = utilisateurService;
     }
-
     @PostMapping(path = "")
     @ResponseStatus(HttpStatus.CREATED)
     public Utilisateur saveUser(@RequestBody Utilisateur user) {
-        return userService.saveUser(user);
+        return utilisateurService.saveUtilisateur(user);
     }
-
     @GetMapping(path = "/{id}")
     public Utilisateur findUserById(@PathVariable String id) {
-        return userService.findUserById(id);
+        return utilisateurService.findUtilisateurById(id);
     }
 }

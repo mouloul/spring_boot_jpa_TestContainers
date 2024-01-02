@@ -15,7 +15,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Testcontainers
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // deactivate the default behaviour
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @DataJpaTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class UtilisateurRepositoryTest {
@@ -68,7 +68,7 @@ class UtilisateurRepositoryTest {
         Utilisateur utilisateur = generateUser();
         var savedUser = repository.save(utilisateur);
 
-        var users = repository.getUserByName(savedUser.getNom());
+        var users = repository.getUserByNom(savedUser.getNom());
 
         // org.assertj.core.api
         Assertions.assertThat(users.size()).isEqualTo(1);

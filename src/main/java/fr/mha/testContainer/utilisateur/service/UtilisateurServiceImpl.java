@@ -14,12 +14,11 @@ public class UtilisateurServiceImpl implements UtilisateurService{
     }
 
     @Override
-    public Utilisateur saveUser(Utilisateur user) {
+    public Utilisateur saveUtilisateur(Utilisateur user) {
         return userRepository.save(user);
     }
-
     @Override
-    public Utilisateur findUserById(String id) {
+    public Utilisateur findUtilisateurById(String id) {
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("Utilisateur non trouvé !"));
     }
 }

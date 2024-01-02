@@ -12,5 +12,5 @@ import java.util.List;
 public interface UtilisateurRepository extends CrudRepository<Utilisateur, String> {
 
     @Query("FROM Utilisateur u WHERE u.nom = ?1")
-    List<Utilisateur> getUserByName(@Param("nom") String nom);
+    List<Utilisateur> getUserByNom(@Param("nom") String nom);
 }
